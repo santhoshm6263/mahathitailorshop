@@ -1,0 +1,12 @@
+# ==============================================================================
+# Mahathi Tailor Shop - Netlify Deployment Configuration
+# ==============================================================================
+#
+# Configures URL redirects for custom Single Page Application client-side routing.
+# Direct access to subpages (like /profile or /admin) redirects to index.html safely.
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false

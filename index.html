@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    // Fail-Safe Global Error Boundary Overlay
+    window.addEventListener('error', function(event) {
+      console.error("👑 Atelier Global Exception Captured: ", event.error);
+      const root = document.getElementById('root');
+      if (root) {
+        root.innerHTML = `
+          <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #FDFBF7; padding: 24px; text-align: center; font-family: 'Poppins', -apple-system, sans-serif; box-sizing: border-box;">
+            <div style="max-width: 550px; width: 100%; background: #ffffff; border: 1px solid #D4AF37; border-radius: 28px; padding: 36px; box-shadow: 0 10px 40px rgba(92,6,30,0.15); box-sizing: border-box; position: relative; overflow: hidden;">
+              <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(to right, #D4AF37, #5C061E, #D4AF37);"></div>
+              <span style="font-size: 40px; display: block; margin-bottom: 16px;">👑</span>
+              <h2 style="font-family: 'Playfair Display', serif; font-size: 22px; font-weight: bold; color: #5C061E; margin: 0 0 12px 0;">Atelier Load Exception</h2>
+              <p style="font-size: 11px; color: rgba(92,6,30,0.7); line-height: 1.6; margin-bottom: 24px;">
+                A critical initialization exception occurred during startup. Let us review the diagnostic parameters below to restore perfect styling balance:
+              </p>
+              <div style="background-color: #FDF7F8; text-align: left; padding: 18px; border-radius: 16px; font-family: monospace; font-size: 10px; color: #800A2A; overflow-x: auto; max-height: 250px; border: 1px solid rgba(128,10,42,0.06); white-space: pre-wrap; word-break: break-all; margin-bottom: 28px;">
+<strong>Error:</strong> ${event.message}
+<strong>Source:</strong> ${event.filename}
+<strong>Line:</strong> ${event.lineno}:${event.colno}
+
+<strong>Stack Trace:</strong>
+${event.error ? event.error.stack : 'No stack trace available'}
+              </div>
+              <button onclick="window.location.reload();" style="width: 100%; font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 0.15em; text-transform: uppercase; background-color: #5C061E; border: 1px solid #D4AF37; color: #D4AF37; padding: 15px; border-radius: 9999px; cursor: pointer; box-shadow: 0 4px 20px rgba(212,175,55,0.2); transition: all 0.3s;">
+                Restart Atelier
+              </button>
+            </div>
+          </div>
+        `;
+        // Make sure loading screen gets deleted if it's there
+        const splash = document.querySelector('.bg-cream');
+        if (splash && splash !== root.firstElementChild) {
+          splash.remove();
+        }
+      }
+    });
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahathi Tailor Shop | Luxury Boutique Tailoring & Aari Work</title>
+  <meta name="description" content="Premium women's boutique fashion studio specializing in designer blouses, heavy bridal Aari embroidery, custom tailoring, and wedding collections in deep royal maroon and zari gold.">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- React and ReactDOM loaded Locally (100% Offline Robustness) -->
+  <script src="./src/shared/vendor/react.min.js"></script>
+  <script src="./src/shared/vendor/react-dom.min.js"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            maroon: {
+              DEFAULT: '#5C061E',
+              light: '#800A2A',
+              dark: '#3D0210',
+              soft: '#FDF7F8',
+            },
+            gold: {
+              DEFAULT: '#D4AF37',
+              light: '#F3E5AB',
+              dark: '#AA7C11',
+              soft: '#FFFDF9',
+            },
+            cream: {
+              DEFAULT: '#FDFBF7',
+              light: '#FFFFFF',
+              dark: '#F5EFEB',
+            }
+          },
+          fontFamily: {
+            playfair: ['Playfair Display', 'serif'],
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            luxury: '0 10px 40px -10px rgba(92, 6, 30, 0.12)',
+            gold: '0 4px 20px -2px rgba(212, 175, 55, 0.15)',
+            glow: '0 0 25px rgba(212, 175, 55, 0.3)',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.8s ease-out forwards',
+            'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'float-slow': 'float 8s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Luxury Styles & Animations -->
+  <style>
+    /* Custom CSS animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+    @keyframes pulseSoft {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.02); }
+    }
+
+    /* Premium Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F5EFEB;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #800A2A;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #5C061E;
+    }
+
+    /* Glassmorphism glass overlay utility */
+    .glassmorphism {
+      background: rgba(92, 6, 30, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    }
+    
+    .glass-light {
+      background: rgba(253, 251, 247, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(92, 6, 30, 0.05);
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #FDFBF7;
+      color: #3D0210;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Editorial Luxury Underline Effect */
+    .luxury-link {
+      position: relative;
+    }
+    .luxury-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: #D4AF37;
+      transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .luxury-link:hover::after {
+      width: 100%;
+    }
+
+    /* Horizontal Pinterest-style Columns */
+    .masonry-grid {
+      column-count: 1;
+      column-gap: 1.5rem;
+    }
+    @media (min-width: 640px) { .masonry-grid { column-count: 2; } }
+    @media (min-width: 1024px) { .masonry-grid { column-count: 3; } }
+    @media (min-width: 1280px) { .masonry-grid { column-count: 4; } }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Before-After Interactive Image Slider */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      user-select: none;
+    }
+    .slider-before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .slider-handle {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #D4AF37;
+      cursor: ew-resize;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slider-button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #5C061E;
+      border: 2px solid #D4AF37;
+      color: #D4AF37;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="selection:bg-maroon selection:text-gold">
+
+  <!-- Root mount point for React app -->
+  <div id="root">
+    <!-- Initial Loading State while React boots -->
+    <div class="fixed inset-0 flex flex-col items-center justify-center bg-cream z-50">
+      <div class="text-center">
+        <!-- Luxury Brand Logo Animation -->
+        <div class="relative w-24 h-24 mx-auto mb-6 flex items-center justify-center rounded-full border border-gold/40 animate-pulse-soft">
+          <div class="absolute inset-2 rounded-full border-2 border-dashed border-gold/30"></div>
+          <span class="font-playfair text-4xl text-maroon font-bold tracking-widest">M</span>
+        </div>
+        <h1 class="font-playfair text-2xl text-maroon font-semibold tracking-wide mb-2">Mahathi Tailor Shop</h1>
+        <p class="font-poppins text-xs text-gold uppercase tracking-[0.2em]">Luxury Boutique & Aari Studio</p>
+        <div class="w-16 h-[2px] bg-gold mx-auto mt-6 rounded-full overflow-hidden">
+          <div class="h-full bg-maroon w-1/2 rounded-full animate-[loading_1.5s_infinite_ease-in-out]"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @keyframes loading {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+  </style>
+
+  <!-- Mount the modular ES6 React codebase -->
+  <script type="module" src="./src/app/index.js"></script>
+
+  <!-- Fail-Safe Auto-Fade for Loading Splash Screen (Guaranteed to hide after 1.2s) -->
+  <script>
+    setTimeout(() => {
+      const splash = document.querySelector('.bg-cream');
+      if (splash) {
+        splash.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        splash.style.opacity = '0';
+        setTimeout(() => splash.remove(), 600);
+      }
+    }, 1200);
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+# Node and Local Modules
+node_modules/
+dist/
+build/
+.next/
+.nuxt/
+out/
+
+# Local Environment Configurations
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# OS Metadata & Temp Files
+.DS_Store
+Thumbs.db
+*.log
+tmp/
+temp/
+
+# Editor Configs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Local Firebase & Tooling Caches
+.firebase/
+.netlify/
+.vercel/
