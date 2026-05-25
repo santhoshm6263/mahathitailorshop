@@ -81,8 +81,8 @@ export const Footer = ({ setCurrentPage }) => {
               <div className="flex items-start space-x-3">
                 <span className="text-gold font-bold">📍</span>
                 <span className="leading-relaxed">
-                  No. 14, Pondy Bazaar, Near Residency Towers,<br />
-                  T. Nagar, Chennai - 600017,<br />
+                  mahathi tailor shop,mpp ponnangur primary school,
+                  Adavibhudhugur road,Mallanur,Kuppam,AP (517425)<br />
                   Tamil Nadu, India.
                 </span>
               </div>
