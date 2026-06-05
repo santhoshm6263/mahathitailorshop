@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartOpen }) => {
 
   return (
     <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${
-      isDarkBg ? 'bg-[#5C061E] shadow-luxury py-3 border-b border-[#D4AF37]/15' : 'bg-[#5C061E]/90 md:bg-transparent py-5'
+      isScrolled ? 'glassmorphism shadow-luxury py-3' : 'bg-transparent py-5'
     }`}>
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex items-center justify-between">
         
@@ -155,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartOpen }) => {
           {/* Appointment Booking Trigger */}
           <Link 
             href="/booking"
-            className="font-poppins text-xs uppercase tracking-widest font-bold bg-[#D4AF37] hover:bg-white text-maroon hover:shadow-glow hover:-translate-y-0.5 px-6 py-3 rounded-full border border-[#D4AF37] transition-all duration-300"
+            className="font-poppins text-xs uppercase tracking-widest font-bold btn-gold-glow px-6 py-3 rounded-full border border-gold"
           >
             Book Appointment
           </Link>
@@ -173,7 +173,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onCartOpen }) => {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-[70px] bg-[#3D0210]/95 z-30 xl:hidden animate-fade-in flex flex-col justify-between p-8 border-t border-[#D4AF37]/15">
+        <div className="fixed inset-0 top-[70px] bg-[#0F0F12]/95 backdrop-blur-lg z-30 xl:hidden animate-fade-in flex flex-col justify-between p-8 border-t border-white/10">
           <nav className="flex flex-col space-y-6">
             {navLinks.map(link => (
               <Link

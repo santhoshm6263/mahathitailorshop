@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-maroon-dark text-white pt-16 pb-8 border-t border-gold/15 relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#800A2A]/20 via-[#3D0210] to-[#3D0210]">
+    <footer className="bg-[#0F0F12] text-white pt-16 pb-8 border-t border-white/10 relative overflow-hidden bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#8A3DFF]/15 via-[#0F0F12] to-[#0F0F12]">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 relative z-10">
         
         {/* Brand */}
@@ -62,7 +62,7 @@ export const Footer: React.FC = () => {
         <div className="space-y-6">
           <h4 className="font-playfair text-sm font-bold text-gold uppercase tracking-wider">Newsletter</h4>
           <p className="font-poppins text-xs text-white/70">Subscribe to receive festive stitching slots notifications.</p>
-          <form onSubmit={(e) => e.preventDefault()} className="flex border border-gold/20 rounded-full overflow-hidden bg-maroon max-w-xs">
+          <form onSubmit={(e) => e.preventDefault()} className="flex border border-gold/20 rounded-full overflow-hidden bg-white/5 max-w-xs">
             <input 
               type="email" 
               placeholder="Your email" 
